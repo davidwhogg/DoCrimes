@@ -3,10 +3,32 @@
 
 \documentclass[modern]{aastex631}
 \usepackage[utf8]{inputenc}
-\usepackage[letterpaper]{geometry}
 
 % typesetting issues
 \sloppy\sloppypar\raggedbottom\frenchspacing
+
+% figure issues
+\usepackage[framemethod=tikz]{mdframed}
+\usetikzlibrary{shadows}
+\definecolor{captiongray}{HTML}{555555}
+\mdfsetup{%
+  innertopmargin=2ex,
+  innerbottommargin=1.8ex,
+  linecolor=captiongray,
+  linewidth=0.5pt,
+  roundcorner=5pt,
+  shadow=true,
+  shadowcolor=black!05,
+  shadowsize=4pt
+}
+\newlength{\figurewidth}
+\setlength{\figurewidth}{0.75\textwidth}
+
+% math definitions
+
+% text definitions
+\shortauthors{hogg and storey-fisher}
+\shorttitle{testing isotropy and homogeneity}
 
 \begin{document}
 
@@ -58,7 +80,63 @@ Hello World!
 
 \section{Data}
 
+\begin{figure}[t!]
+  \begin{mdframed}
+  \color{captiongray}
+  \begin{center}
+    \includegraphics[width=\figurewidth]{notebooks/radec.png}
+  \end{center}
+    \caption{The full quasar sample plotted on the sky in Equatorial coordinates.
+    The NGC subsample (and its associated random catalog) is colored blue and the SGC subsample is colored orange.\label{fig:radec}.}
+  \end{mdframed}
+\end{figure}
+
+\begin{figure}[t!]
+  \begin{mdframed}
+  \color{captiongray}
+  \begin{center}
+    \includegraphics[width=\figurewidth]{notebooks/lb.png}\\
+    \includegraphics[width=\figurewidth]{notebooks/lb_random.png}
+  \end{center}
+    \caption{The full quasar sample and a sampling of the (much larger) random catalog, plotted on the sky in Galactic coordinates.
+    The sine is taken of the Galactic latitude coordinate to make the projection equal-area.
+    The NGC subsample (and its associated random catalog) is colored blue and the SGC subsample is colored orange.\label{fig:lb}.}
+  \end{mdframed}
+\end{figure}
+
 \section{Method and results}
+
+\begin{figure}[t!]
+  \begin{mdframed}
+  \color{captiongray}
+  \begin{center}
+    \includegraphics[width=\figurewidth]{notebooks/zhist.png}
+  \end{center}
+    \caption{The redshift distributions of the NGC and SGC subsamples.\label{fig:zhist}.}
+  \end{mdframed}
+\end{figure}
+
+\begin{figure}[t!]
+  \begin{mdframed}
+  \color{captiongray}
+  \begin{center}
+    \includegraphics[width=\figurewidth]{notebooks/cumulativeDD.png}
+  \end{center}
+    \caption{The cumulative total number of quasar--quasar pairs as a function of separation for the NGC and SGC subsamples.
+    This figure demonstrates that the fractal dimension is extremely close to 3. The small offset between the NGC and SGC comes from the differing sizes of the two regions.\label{fig:cumulative}.}
+  \end{mdframed}
+\end{figure}
+
+\begin{figure}[t!]
+  \begin{mdframed}
+  \color{captiongray}
+  \begin{center}
+    \includegraphics[width=\figurewidth]{notebooks/corrfunc.png}
+  \end{center}
+    \caption{The auto-correlation of the quasars as a function of separation for the NGC and SGC subsamples.
+    This figure demonstrates that the clustering amplitude is similar between the North and the South.\label{fig:corrfunc}.}
+  \end{mdframed}
+\end{figure}
 
 \section{Discussion}
 
