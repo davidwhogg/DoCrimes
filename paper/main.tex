@@ -21,6 +21,8 @@
   shadowcolor=black!05,
   shadowsize=4pt
 }
+\newlength{\widefigurewidth}
+\setlength{\widefigurewidth}{0.95\textwidth}
 \newlength{\figurewidth}
 \setlength{\figurewidth}{0.75\textwidth}
 
@@ -84,7 +86,7 @@ Hello World!
   \begin{mdframed}
   \color{captiongray}
   \begin{center}
-    \includegraphics[width=\figurewidth]{notebooks/radec.png}
+    \includegraphics[width=\widefigurewidth]{notebooks/radec.png}
   \end{center}
     \caption{The full quasar sample plotted on the sky in Equatorial coordinates.
     The NGC subsample (and its associated random catalog) is colored blue and the SGC subsample is colored orange.\label{fig:radec}.}
@@ -95,8 +97,8 @@ Hello World!
   \begin{mdframed}
   \color{captiongray}
   \begin{center}
-    \includegraphics[width=\figurewidth]{notebooks/lb_better.png}\\
-    \includegraphics[width=\figurewidth]{notebooks/lb_random_better.png}
+    \includegraphics[width=\widefigurewidth]{notebooks/lb_better.png}\\
+    \includegraphics[width=\widefigurewidth]{notebooks/lb_random_better.png}
   \end{center}
     \caption{The full quasar sample (top) and a sampling of the much larger random catalog (bottom), plotted on the sky in Galactic coordinates.
     This projection is designed to be equal-area, such that a set of quasars uniformly distributed on the sky would make a set of points uniformly distributed on this 2-d plot.
