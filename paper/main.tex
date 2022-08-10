@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc}
 
 % typesetting issues
+\setlength{\parindent}{3.5ex}
 \sloppy\sloppypar\raggedbottom\frenchspacing
 
 % figure issues
@@ -27,6 +28,8 @@
 \setlength{\figurewidth}{0.75\textwidth}
 
 % math definitions
+\newcommand{\unit}[1]{\mathrm{#1}}
+\newcommand{\Gpc}{\unit{Gpc}}
 
 % text definitions
 \shortauthors{hogg and storey-fisher}
@@ -78,7 +81,29 @@ quasars
 
 \section{Introduction}
 
-Hello World!
+One of the key fundamental assumptions of the physical cosmological model is that the Universe is isotropic and homogeneous on large scales (CITE).
+These assumptions are testable.
+And they are worthy of test, both because it is always worth testing fundamental assumptions, and because the large-scale structure has self-similar or fractal characteristics (CITE).
+Indeed, there is expected to be at least some power in the initial conditions on all length scale (CITE).
+
+If the Universe failed tests of homogeneity on large scales, and in particular if the Universe turned out to be a fractal with a fractal dimension significantly less than 3, we would be in big trouble theoretically.
+Why?
+Because a fractal universe has no well-defined mean density.
+There are no working physical models for such an inhomogeneous universe.
+Indeed, there are not even any known solutions of the equations of general relativity without a well-defined mean density.
+
+All that said, we know now that the Universe is not a fractal on large scales (CITE).
+There are other reasons to continue to test isotropy and homogeneity however.
+One is that the cosmic microwave background appears to show a power asymmetry, in which there appears to be a larger amplitude of fluctuations in the North/South Galactic Cap than there is in the South/North (CITE).
+If this asymmetry is real, it should show itself in the large-scale structure as well (CITE).
+
+Another reason to make new tests of isotropy and homogeneity is that data samples keep getting larger in volume and number, permitting more and more sensitive tests.
+Here we make use of the brand-new ESA \textsl{Gaia} DR3 data (CITE), which includes hundreds of thousands or even millions of quasars, all-sky (CITE).
+This data set is not the largest cosmological data set in terms of number of tracers, but it is the largest-ever data set in terms of comoving volume, spanning some XXX $h^{-3}\,\Gpc^3$ (comoving), depending on how you want to define the sample volume.
+
+A final but equally important reason to test isotropy and homogeneity is that these tests provide a very strong validation of the quality and uniformity of the data.
+Indeed, the first work on homogeneity with the Sloan Digital Sky Survey data (CITE) was performed to test the calibration and stability of the data in preparation for the measurement of the baryon acoustic feature (CITE).
+The work presented here represents a first strong test of the calibration and isotropy of the \textsl{Gaia} quasar sample.
 
 \section{Data}
 
