@@ -7,6 +7,7 @@
 % typesetting issues
 \setlength{\parindent}{3.5ex}
 \sloppy\sloppypar\raggedbottom\frenchspacing
+\renewcommand{\twocolumngrid}{} % oh yes I can do that
 
 % figure issues
 \usepackage[framemethod=tikz]{mdframed}
@@ -30,10 +31,13 @@
 % math definitions
 \newcommand{\unit}[1]{\mathrm{#1}}
 \newcommand{\Gpc}{\unit{Gpc}}
+\newcommand{\mg}{\unit{mag}}
 
 % text definitions
 \shortauthors{hogg and storey-fisher}
 \shorttitle{testing isotropy and homogeneity}
+\newcommand{\documentname}{\textsl{Article}}
+\newcommand{\figref}[1]{\figurename~\ref{#1}}
 
 \begin{document}
 
@@ -107,16 +111,29 @@ The work presented here represents a first strong test of the calibration and is
 
 \section{Data}
 
+Hogg say: Make sure we cite the CU5 papers here and anything that helped make the extragalactic and quasar samples.
+
+The data used in this project is the XXX quasar sample (\citealt{ksf}), derived from the ESA \textsl{Gaia} quasar candidate catalog (CITE).
+This candidate catalog was released as part of the \textsl{Gaia} Data Release 3 data (DR3; CITE).
+The catalog was constructed using the overlap of the \textsl{Gaia} DR3 data with photometry from the NASA \textsl{WISE} Mission (CITE), and spectro-photometric redshifts were estimated using a combination of XXX photometry, \textsl{Gaia} DR3 \texttt{qsoc} (maybe?) redshift estimates, and a training set from \textsl{SDSS-IV} Data Release 17 data (CITE).
+For more information see the XXX quasar catalog paper (\citealt{ksf}).
+
 \begin{figure}[t!]
   \begin{mdframed}
   \color{captiongray}
   \begin{center}
     \includegraphics[width=\figurewidth]{notebooks/radec.png}
   \end{center}
-    \caption{The full quasar sample plotted on the sky in Equatorial coordinates.
-    The NGC subsample (and its associated random catalog) is colored blue and the SGC subsample is colored orange.\label{fig:radec}.}
+    \caption{The full quasar sample, obtained after cutting on apparent magnitude and extinction, plotted on the sky in Equatorial coordinates.
+    The NGC subsample (and its associated random catalog) is colored blue and the SGC subsample is colored orange.
+    Stars from the Bright Star Catalog (\citealt{bsc}) with $V<4\,\mg$ are shown as grey disks for angular reference.\label{fig:radec}}
   \end{mdframed}
 \end{figure}
+We cut the full XXX quasar sample to \textsl{Gaia} $G<20\,\mg$ for redshift reliability.
+We further cut it to an infrared-emission-based extinction estimate of YYYY$<$whatever (\cite{sfd}) for angular uniformity.
+Finally, we tag those quasars with Galactic latitude $b>0$ ``North Galactic Cap'' (NGC) and those with $b<0$ ``South Galactic Cap'' (SGC).
+These cuts leave XXX quasars in the sample, YYY in the NGC subsample and ZZZ in the SGC subsample.
+The sample is shown on the sky in the equatorial coordinate system in \figref{fig:radec}.
 
 \begin{figure}[t!]
   \begin{mdframed}
@@ -125,11 +142,15 @@ The work presented here represents a first strong test of the calibration and is
     \includegraphics[width=\figurewidth]{notebooks/lb_better.png}\\
     \includegraphics[width=\figurewidth]{notebooks/lb_random_better.png}
   \end{center}
-    \caption{The full quasar sample (top) and a sampling of the much larger random catalog (bottom), plotted on the sky in Galactic coordinates.
-    This projection is designed to be equal-area, such that a set of quasars uniformly distributed on the sky would make a set of points uniformly distributed on this 2-d plot.
-    The NGC subsample (and its associated random catalog) is colored blue and the SGC subsample is colored orange.\label{fig:lb}.}
+    \caption{The full quasar sample obtained after cutting on apparent magnitude and extinction (top) and a sampling of the much larger random catalog obtained after making those same cuts (bottom), plotted on the sky in Galactic coordinates.
+    This projection is designed to be equal-area (the Lambert azimuthal equal-area projection), such that a set of quasars uniformly distributed on the sky would make a set of points uniformly distributed on this 2-d plot.
+    The NGC subsample (and its associated random catalog) is colored blue and the SGC subsample (and its associated random catalog) is colored orange.
+    Stars from the Bright Star Catalog (\citealt{bsc}) with $V<4\,\mg$ are shown as grey disks for angular reference.\label{fig:lb}}
   \end{mdframed}
 \end{figure}
+The XXX quasar catalog comes with an associated random catalog with a near-identical sky footprint but YYYY times the density (\citealt{ksf}).
+We cut the random catalog identically to the quasar catalog.
+Both the quasar catalog and an equivalent-density sampling of the random catalog are shown on the sky in the Galactic coordinate system in \figref{fig:lb}.
 
 \section{Method and results}
 
@@ -139,7 +160,7 @@ The work presented here represents a first strong test of the calibration and is
   \begin{center}
     \includegraphics[width=\figurewidth]{notebooks/zhist.png}
   \end{center}
-    \caption{The redshift distributions of the NGC and SGC subsamples.\label{fig:zhist}.}
+    \caption{The redshift distributions of the NGC and SGC subsamples.\label{fig:zhist}}
   \end{mdframed}
 \end{figure}
 
@@ -163,10 +184,23 @@ The work presented here represents a first strong test of the calibration and is
     \includegraphics[width=\figurewidth]{notebooks/corrfunc.png}
   \end{center}
     \caption{The auto-correlation of the quasars as a function of separation for the NGC and SGC subsamples.
-    This figure demonstrates that the clustering amplitude is similar between the North and the South.\label{fig:corrfunc}.}
+    This figure demonstrates that the clustering amplitude is similar between the North and the South.\label{fig:corrfunc}}
   \end{mdframed}
 \end{figure}
 
 \section{Discussion}
+
+\begin{acknowledgements}
+Be sure to cite all software.
+
+Be sure to thank the Gaia~F\^ete and Gaia~Hike.
+
+Be sure to put in the full Gaia acknowlegement.
+\end{acknowledgements}
+
+\begin{thebibliography}{dummy}
+\bibitem[Hoffleit \& Jaschek(1991)]{bsc}
+Hoffleit, D. \& Jaschek, C.\ 1991, The Bright Star Catalog. New Haven: Yale University Observatory, 5th rev. ed.
+\end{thebibliography}
 
 \end{document}
