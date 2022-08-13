@@ -44,13 +44,13 @@
 \title{%
 Testing cosmic isotropy and homogeneity
 with \textsl{Gaia} quasars}
-\author{David W. Hogg}
-\affil{Center for Cosmology and Particle Physics, New York University}
+\author[0000-0003-2866-9403]{David W. Hogg}
+\affil{Center for Cosmology and Particle Physics, Department of Physics, New York University}
 \affil{Max-Planck-Institut f\"ur Astronomie}
 \affil{Flatiron Institute, a division of the Simons Foundation}
 
-\author{Kate Storey-Fisher}
-\affil{Center for Cosmology and Particle Physics, New York University}
+\author[0000-0001-8764-7103]{Kate Storey-Fisher}
+\affil{Center for Cosmology and Particle Physics, Department of Physics, New York University}
 
 \date{2022 August}
 
@@ -82,7 +82,8 @@ large-scale~structure~of~the~Universe
 ---
 quasars
 }
-
+\section*{}
+\clearpage
 \section{Introduction}
 
 One of the key fundamental assumptions of the physical cosmological model is that the Universe is isotropic and homogeneous on large scales (CITE).
@@ -149,10 +150,17 @@ The sample is shown on the sky in the equatorial coordinate system in \figref{fi
   \end{mdframed}
 \end{figure}
 The XXX quasar catalog comes with an associated random catalog with a near-identical sky footprint but YYYY times the density (\citealt{ksf}).
+The random-catalog footprint is modulated by stellar density and Galactic extinction, with these modulations fit to match the observed data.
 We cut the random catalog identically to the quasar catalog.
 Both the quasar catalog and an equivalent-density sampling of the random catalog are shown on the sky in the Galactic coordinate system in \figref{fig:lb}.
 
-\section{Method and results}
+\section{Isotropy}
+
+A simple kind of isotropy is evident in \figref{fig:lb}.
+
+This could be made more quantitative by projecting onto spherical harmonics.
+That, in turn, will compare to or rely on the random catalog.
+Does that make this test circular? No. Explain why not.
 
 \begin{figure}[t!]
   \begin{mdframed}
@@ -163,6 +171,17 @@ Both the quasar catalog and an equivalent-density sampling of the random catalog
     \caption{The redshift distributions of the NGC and SGC subsamples.\label{fig:zhist}}
   \end{mdframed}
 \end{figure}
+A strong test of isotropy is the redshift distribution.
+Why is this strong?
+It also connects to the hemispherical power asymmetry in the CMB.
+
+In principle we could do something that is even more extreme, which would be the projection of the redshift distribution onto spherical harmonics. Anyone up for that? Might discover non-seperability of the angular and redshift distributions.
+
+\section{Homogeneity}
+
+The weakest possible test of homogeneity is that the fractal dimension is 3.
+In that case, the Universe has a mean density.
+There is a raw-counts test, and there is a comparison to expectation (which is more precise but which involves more assumptions).
 
 \begin{figure}[t!]
   \begin{mdframed}
@@ -177,6 +196,12 @@ Both the quasar catalog and an equivalent-density sampling of the random catalog
   \end{mdframed}
 \end{figure}
 
+\section{Statistical isotropy}
+
+If the fractal dimension is 3, then the correlation function should go to zero at large scales.
+It does!
+But the power asymmetry between the hemispheres challenges \emph{statistical isotropy} which is yet another test.
+
 \begin{figure}[t!]
   \begin{mdframed}
   \color{captiongray}
@@ -190,13 +215,30 @@ Both the quasar catalog and an equivalent-density sampling of the random catalog
 
 \section{Discussion}
 
+We found what we expected to find, but at very good precision.
+
+ESA \textsl{Gaia} rocks!
+
 \begin{acknowledgements}
-Be sure to cite all software.
+Be sure to cite all software: numpy, scipy, matplotlib, astropy.
 
 Be sure to thank the Gaia~F\^ete and Gaia~Hike.
 
 Be sure to put in the full Gaia acknowlegement.
+
+Did we use 2MASS? If so, fix the text to capture it above and below.
 \end{acknowledgements}
+
+\facilities{%
+European Space Agency (ESA) Gaia Satellite Mission,
+NASA 0.4m Wide-field Infrared Survey Explorer (WISE) Satellite Mission,
+2.5m Sloan Digital Sky Survey (SDSS) Telescope at Apache Point Observatory (APO)}
+
+\software{%
+numpy (\citealt{numpy}),
+scipy (\citealt{scipy}),
+matplotlib (\citealt{matplotlib}),
+astropy (\citealt{astropy})}
 
 \begin{thebibliography}{dummy}
 \bibitem[Hoffleit \& Jaschek(1991)]{bsc}
