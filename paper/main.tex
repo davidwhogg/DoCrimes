@@ -86,10 +86,10 @@ quasars
 \clearpage
 \section{Introduction}
 
-One of the key fundamental assumptions of the physical cosmological model is that the Universe is isotropic and homogeneous on large scales (CITE).
-These assumptions are testable.
-And they are worthy of test, both because it is always worth testing fundamental assumptions, and because the large-scale structure has self-similar or fractal characteristics (CITE).
-Indeed, there is expected to be at least some power in the initial conditions on all length scale (CITE).
+One of the fundamental assumptions of the physical cosmological model is that the Universe is isotropic and homogeneous on large scales (CITE).
+This assumption is testable.
+It is worthy of test, both because it is always worth testing fundamental assumptions, and because the large-scale structure has self-similar or fractal characteristics (CITE), which are characteristic of inhomogeneous distributions.
+And, even in the ascendent physical model of cosmology, there is expected to be at least some power in the initial conditions on all length scale (CITE).
 
 If the Universe failed tests of homogeneity on large scales, and in particular if the Universe turned out to be a fractal with a fractal dimension significantly less than 3, we would be in big trouble theoretically.
 Why?
@@ -131,7 +131,7 @@ For more information see the XXX quasar catalog paper (\citealt{ksf}).
   \end{mdframed}
 \end{figure}
 We cut the full XXX quasar sample to \textsl{Gaia} $G<20\,\mg$ for redshift reliability.
-We further cut it to an infrared-emission-based extinction estimate of YYYY$<$whatever (\cite{sfd}) for angular uniformity.
+We further cut it to an infrared-emission-based extinction estimate of YYYY$<$whatever (\citealt{sfd}) for angular uniformity.
 Finally, we tag those quasars with Galactic latitude $b>0$ ``North Galactic Cap'' (NGC) and those with $b<0$ ``South Galactic Cap'' (SGC).
 These cuts leave XXX quasars in the sample, YYY in the NGC subsample and ZZZ in the SGC subsample.
 The sample is shown on the sky in the equatorial coordinate system in \figref{fig:radec}.
@@ -140,8 +140,8 @@ The sample is shown on the sky in the equatorial coordinate system in \figref{fi
   \begin{mdframed}
   \color{captiongray}
   \begin{center}
-    \includegraphics[width=\figurewidth]{notebooks/lb_better.png}\\
-    \includegraphics[width=\figurewidth]{notebooks/lb_random_better.png}
+    \includegraphics[width=\figurewidth]{notebooks/lb.png}\\
+    \includegraphics[width=\figurewidth]{notebooks/lb_random.png}
   \end{center}
     \caption{The full quasar sample obtained after cutting on apparent magnitude and extinction (top) and a sampling of the much larger random catalog obtained after making those same cuts (bottom), plotted on the sky in Galactic coordinates.
     This projection is designed to be equal-area (the Lambert azimuthal equal-area projection), such that a set of quasars uniformly distributed on the sky would make a set of points uniformly distributed on this 2-d plot.
@@ -157,10 +157,40 @@ Both the quasar catalog and an equivalent-density sampling of the random catalog
 \section{Isotropy}
 
 A simple kind of isotropy is evident in \figref{fig:lb}.
+Because the sky plots shown there are equal-area projections, the uniformity of the sample in those plots is an indicator of isotropy.
+This observation can be made more quantitative by projecting onto spherical harmonics.
+In detail, we project onto the spherical harmonics by
+\begin{equation}
+    a_{\ell m} = \sum_n Y_{\ell m}(\Omega_n) ~,
+\end{equation}
+where $a_{\ell m}$ is a spherical-harmonic amplitude,
+$\ell, m$ are the angular degree and order,
+$n$ is an integer index and the sum is over all quasars,
+$Y_{\ell m}(\Omega)$ is the spherical harmonic at degree $\ell$ and order $m$,
+and
+$\Omega_n$ is the sky position (Galactic $l, b$) for quasar $n$.
+The spherical harmonics are oriented in the natural way in the Galactic coordinate system, such that $Y_{10}$ has a maximum in the direction of the Galactic Center.
+The top panel of \figref{fig:alms} shows these amplitudes $a_{\ell m}$.
+The amplitudes $a_{\ell m}$ are complex, so \figref{fig:alms} shows the real and imaginary parts of the $m\geq 0$ orders.
 
-This could be made more quantitative by projecting onto spherical harmonics.
-That, in turn, will compare to or rely on the random catalog.
-Does that make this test circular? No. Explain why not.
+\begin{figure}[t!]
+  \begin{mdframed}
+  \color{captiongray}
+  \begin{center}
+    \includegraphics[width=\figurewidth]{notebooks/alms.png}
+  \end{center}
+    \caption{The spherical-harmonic expansion for the sky distribution, in the natural Galactic coordinate-system spherical harmonics. \textsl{Top:} The real and imaginary amplitudes of the spherical-harmonic expansion for the data set. It has a large amplitude at $(\ell,m)=(2,0)$ because of the quadrupolar form of the extinction map (and therefore sample selection). \textsl{Bottom:} The same, but the real and imaginary amplitudes for $\ell>0$ have been adjusted for their expectation under the selection function, as it has been represented by the random catalog. The low amplitudes at $\ell>0$ demonstrates the isotropy of the sample. There are still residual amplitudes at $(\ell, m)=(1,0)$, $(2,0)$, and $(4,0)$ as expected if there are small issues with the completeness model (selection function model), which is based on an extinction map and a stellar-density map.\label{fig:alms}}
+  \end{mdframed}
+\end{figure}
+There is clear anisotropy visible in \figref{fig:alms}, in the form of non-zero amplitudes at $\ell>0$.
+However, the anisotropic structure can be explained by the selection function.
+The bottom panel of \figref{fig:alms} shows the amplitudes again, but after the $\ell>0$ amplitudes have had their expectations, based on the same projection but of the random catalog, subtracted.
+
+In detail, the selection function was inferred (and the random catalog was made) under the assumption that the quasar sample is isotropic (see \citealt{ksf} for details).
+Does this make the test shown in \figref{fig:alms} circular or true by assumption?
+It does not, because the only freedoms permitted in constructing the random catalog were dependences on observed extinction (according to the infrared-emission map of \citealt{sfd}) and the stellar density (according to a count of stars in the \textsl{Gaia} catalog).
+And, indeed, the biggest anisotropic amplitudes are at $(\ell,m)=(1,0)$, $(2,0)$, and $(4,0)$, which are exactly what are expected if this completeness map is not perfect:
+The dust extinction map and the stellar extinction map have most of their power in these modes (because we live in a disk Galaxy but do not live at its Center).
 
 \begin{figure}[t!]
   \begin{mdframed}
@@ -168,10 +198,10 @@ Does that make this test circular? No. Explain why not.
   \begin{center}
     \includegraphics[width=\figurewidth]{notebooks/zhist.png}
   \end{center}
-    \caption{The redshift distributions of the NGC and SGC subsamples.\label{fig:zhist}}
+    \caption{The redshift distributions of the NGC and SGC subsamples. This demonstrates that the distribution of quasar spectrophotometric properties is very similar between the North and South.\label{fig:zhist}}
   \end{mdframed}
 \end{figure}
-A strong test of isotropy is the redshift distribution.
+Another strong test of isotropy can be obtained from the redshift distribution.
 Why is this strong?
 It also connects to the hemispherical power asymmetry in the CMB.
 
@@ -179,9 +209,10 @@ In principle we could do something that is even more extreme, which would be the
 
 \section{Homogeneity}
 
-The weakest possible test of homogeneity is that the fractal dimension is 3.
-In that case, the Universe has a mean density.
-There is a raw-counts test, and there is a comparison to expectation (which is more precise but which involves more assumptions).
+The weakest possible prediction of homogeneity is that there should be a mean density to the Universe.
+This prediction can be cast in terms of the scaling of pair counts or a measurement of the fractal dimension.
+The fractal dimension, for a set of points in a space, is defined to be the scaling of the total number of pairs $N$ in the set with the maximum separation $D$ out to which pairs are counted.
+If $N$ is proportional to $D^3$ then the fractal dimension is 3 and the Universe has a mean density.
 
 \begin{figure}[t!]
   \begin{mdframed}
@@ -195,6 +226,12 @@ There is a raw-counts test, and there is a comparison to expectation (which is m
     This figure demonstrates that the fractal dimension is extremely close to $3$.\label{fig:cumulative}}
   \end{mdframed}
 \end{figure}
+The cumulative number of pairs up to separation $D$ is shown as a function of $D$ in \figref{fig:cumulative}.
+The top panel shows the raw counts of pairs, and the bottom panel shows the pairs relative to an expectation derived from the random catalog, which (by construction) has fractal dimension $D=3$.
+HOGG: EXPLAIN THE EXPECTATION.
+HOGG: In detail... Explain the exact nature of the count in terms of what is counted against what.
+\figref{fig:cumulative} strongly suggests that the fractal dimension $D$ is 3.
+Our best-fit value is ... WHAT?
 
 \section{Statistical isotropy}
 
@@ -216,6 +253,8 @@ But the power asymmetry between the hemispheres challenges \emph{statistical iso
 \section{Discussion}
 
 We found what we expected to find, but at very good precision.
+
+How to summarize these results?
 
 ESA \textsl{Gaia} rocks!
 
@@ -243,6 +282,7 @@ astropy (\citealt{astropy})}
 \begin{thebibliography}{dummy}
 \bibitem[Hoffleit \& Jaschek(1991)]{bsc}
 Hoffleit, D. \& Jaschek, C.\ 1991, The Bright Star Catalog. New Haven: Yale University Observatory, 5th rev. ed.
+\bibitem[Schlegel et al.(1998)]{sfd} Schlegel, D.~J., Finkbeiner, D.~P., \& Davis, M.\ 1998, \apj, 500, 525. doi:10.1086/305772
 \end{thebibliography}
 
 \end{document}
