@@ -1,8 +1,19 @@
 % this document is part of the DoCrimes project.
 % Copyright 2022 the authors
 
+% ## style notes
+% --------------
+% - quasar sample and random catalog? Or quasar catalog and random catalog? Or different?
+
+% ## to-do items
+% --------------
+% - finish writing first draft
+% - put in all references
+% - address all XXX, YYY, ZZZ, HOGG, KSF in the text
+
 \documentclass[modern]{aastex631}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
 
 % typesetting issues
 \setlength{\parindent}{3.5ex}
@@ -37,6 +48,8 @@
 \shortauthors{hogg and storey-fisher}
 \shorttitle{testing isotropy and homogeneity}
 \newcommand{\documentname}{\textsl{Article}}
+\newcommand{\sectionname}{Section}
+\newcommand{\secref}[1]{\sectionname~\ref{#1}}
 \newcommand{\figref}[1]{\figurename~\ref{#1}}
 
 \begin{document}
@@ -84,7 +97,7 @@ quasars
 }
 \section*{}
 \clearpage
-\section{Introduction}
+\section{Introduction}\label{sec:intro}
 
 One of the fundamental assumptions of the physical cosmological model is that the Universe is isotropic and homogeneous on large scales (CITE).
 This assumption is testable.
@@ -110,7 +123,7 @@ A final but equally important reason to test isotropy and homogeneity is that th
 Indeed, the first work on homogeneity with the Sloan Digital Sky Survey data (CITE) was performed to test the calibration and stability of the data in preparation for the measurement of the baryon acoustic feature (CITE).
 The work presented here represents a first strong test of the calibration and isotropy of the \textsl{Gaia} quasar sample.
 
-\section{Data}
+\section{Data}\label{sec:data}
 
 Hogg say: Make sure we cite the CU5 papers here and anything that helped make the extragalactic and quasar samples.
 
@@ -154,13 +167,15 @@ The random-catalog footprint is modulated by stellar density and Galactic extinc
 We cut the random catalog identically to the quasar catalog.
 Both the quasar catalog and an equivalent-density sampling of the random catalog are shown on the sky in the Galactic coordinate system in \figref{fig:lb}.
 
-\section{Isotropy}
+HOGG: DOES \cite{ksf} explain how the random catalog points get redshifts? Or are we doing that here?
+
+\section{Isotropy}\label{sec:iso}
 
 A simple kind of isotropy is evident in \figref{fig:lb}.
 Because the sky plots shown there are equal-area projections, the uniformity of the sample in those plots is an indicator of isotropy.
 This observation can be made more quantitative by projecting onto spherical harmonics.
 In detail, we project onto the spherical harmonics by
-\begin{equation}
+\begin{equation}\label{eq:alms}
     a_{\ell m} = \sum_n Y_{\ell m}(\Omega_n) ~,
 \end{equation}
 where $a_{\ell m}$ is a spherical-harmonic amplitude,
@@ -179,14 +194,16 @@ The amplitudes $a_{\ell m}$ are complex, so \figref{fig:alms} shows the real and
   \begin{center}
     \includegraphics[width=\figurewidth]{notebooks/alms.png}
   \end{center}
-    \caption{The spherical-harmonic expansion for the sky distribution, in the natural Galactic coordinate-system spherical harmonics. \textsl{Top:} The real and imaginary amplitudes of the spherical-harmonic expansion for the data set. It has a large amplitude at $(\ell,m)=(2,0)$ because of the quadrupolar form of the extinction map (and therefore sample selection). \textsl{Bottom:} The same, but the real and imaginary amplitudes for $\ell>0$ have been adjusted for their expectation under the selection function, as it has been represented by the random catalog. The low amplitudes at $\ell>0$ demonstrates the isotropy of the sample. There are still residual amplitudes at $(\ell, m)=(1,0)$, $(2,0)$, and $(4,0)$ as expected if there are small issues with the completeness model (selection function model), which is based on an extinction map and a stellar-density map.\label{fig:alms}}
+    \caption{The spherical-harmonic expansion for the sky distribution, in the natural Galactic coordinate-system spherical harmonics. \textsl{Top:} The real and imaginary amplitudes of the spherical-harmonic expansion for the data set. It has a large amplitude at $(\ell,m)=(2,0)$ because of the quadrupolar form of the extinction map (and therefore sample selection). \textsl{Bottom:} The same, but the real and imaginary amplitudes for $\ell>0$ have been adjusted for their expectation under the selection function, as it has been represented by the random catalog. The low amplitudes at $\ell>0$ in the bottom panel demonstrate the isotropy of the sample. There are still residual amplitudes at $(\ell, m)=(1,0)$, $(2,0)$, and $(4,0)$ as expected if there are small issues with the completeness model (selection function model), which is based on an extinction map and a stellar-density map.\label{fig:alms}}
   \end{mdframed}
 \end{figure}
-There is clear anisotropy visible in \figref{fig:alms}, in the form of non-zero amplitudes at $\ell>0$.
+There is clear anisotropy visible in the top panel of \figref{fig:alms}, in the form of non-zero amplitudes at $\ell>0$.
 However, the anisotropic structure can be explained by the selection function.
-The bottom panel of \figref{fig:alms} shows the amplitudes again, but after the $\ell>0$ amplitudes have had their expectations, based on the same projection but of the random catalog, subtracted.
+The bottom panel of \figref{fig:alms} shows the amplitudes again, but after the $\ell>0$ amplitudes have had their expectations subtracted.
+Their expectations are computed by performing the same sums as in \eqref{eq:alms}, but with the random catalog instead of the quasar catalog.
+These represent the expectations under isotropy because the random catalog is made with a perfectly isotropic distribution cut by an estimate of the selection function.
 
-In detail, the selection function was inferred (and the random catalog was made) under the assumption that the quasar sample is isotropic (see \citealt{ksf} for details).
+In detail, the selection function was inferred (and the random catalog was made) using an empirical procedure that essentially assumes that the quasar sample is isotropic (see \citealt{ksf} for details).
 Does this make the test shown in \figref{fig:alms} circular or true by assumption?
 It does not, because the only freedoms permitted in constructing the random catalog were dependences on observed extinction (according to the infrared-emission map of \citealt{sfd}) and the stellar density (according to a count of stars in the \textsl{Gaia} catalog).
 And, indeed, the biggest anisotropic amplitudes are at $(\ell,m)=(1,0)$, $(2,0)$, and $(4,0)$, which are exactly what are expected if this completeness map is not perfect:
@@ -201,18 +218,19 @@ The dust extinction map and the stellar extinction map have most of their power 
     \caption{The redshift distributions of the NGC and SGC subsamples. This demonstrates that the distribution of quasar spectrophotometric properties is very similar between the North and South.\label{fig:zhist}}
   \end{mdframed}
 \end{figure}
-Another strong test of isotropy can be obtained from the redshift distribution.
+HOGG: Another strong test of isotropy can be obtained from the redshift distribution.
 Why is this strong?
 It also connects to the hemispherical power asymmetry in the CMB.
 
-In principle we could do something that is even more extreme, which would be the projection of the redshift distribution onto spherical harmonics. Anyone up for that? Might discover non-seperability of the angular and redshift distributions.
+HOGG: In principle we could do something that is even more extreme, which would be the projection of the redshift distribution onto spherical harmonics. Anyone up for that? Might discover non-seperability of the angular and redshift distributions.
 
-\section{Homogeneity}
+\section{Homogeneity}\label{sec:homo}
 
 The weakest possible prediction of homogeneity is that there should be a mean density to the Universe.
-This prediction can be cast in terms of the scaling of pair counts or a measurement of the fractal dimension.
-The fractal dimension, for a set of points in a space, is defined to be the scaling of the total number of pairs $N$ in the set with the maximum separation $D$ out to which pairs are counted.
-If $N$ is proportional to $D^3$ then the fractal dimension is 3 and the Universe has a mean density.
+This prediction is weak, but it has the advantage that it carries few other assumptions.
+The prediction that there exists a mean density can be cast in terms of the scaling of pair counts or a measurement of the \emph{fractal dimension}.
+The fractal dimension, for a set of points in a space, is defined to be the scaling of the total number of pairs $N_{DD}$ in the set with the maximum separation $L$ out to which pairs are counted.
+If $N_{DD}$ is proportional to $L^d$ then the fractal dimension is $d$; if $d=3$ then the Universe has a mean density.
 
 \begin{figure}[t!]
   \begin{mdframed}
@@ -226,14 +244,39 @@ If $N$ is proportional to $D^3$ then the fractal dimension is 3 and the Universe
     This figure demonstrates that the fractal dimension is extremely close to $3$.\label{fig:cumulative}}
   \end{mdframed}
 \end{figure}
-The cumulative number of pairs up to separation $D$ is shown as a function of $D$ in \figref{fig:cumulative}.
-The top panel shows the raw counts of pairs, and the bottom panel shows the pairs relative to an expectation derived from the random catalog, which (by construction) has fractal dimension $D=3$.
-HOGG: EXPLAIN THE EXPECTATION.
-HOGG: In detail... Explain the exact nature of the count in terms of what is counted against what.
-\figref{fig:cumulative} strongly suggests that the fractal dimension $D$ is 3.
+The cumulative number $N_{DD}$ of pairs up to separation $L$ is shown as a function of $L$ in the top panel of \figref{fig:cumulative}.
+The top panel shows the raw counts of pairs, and the bottom panel shows the pairs relative to an expectation derived from the random catalog, which (by construction) has fractal dimension $d=3$.
+Although the scaling in the top panel of \figref{fig:cumulative} looks very good, it can be biased by the finite volume within which we have observations; hence the ratios plotted in the bottom panel of \figref{fig:cumulative}.
+In detail, the statistics that are plotted are cumulative pair counts obtained as follows:
+We start by counting pairs within the quasar sample, between the quasar sample and the random catalog, and within the random catalog, by
+\begin{align}\label{eq:DD}
+    N_{DD}(L) &= \sum_n \sum_{n'\ne n} I(r_{nn'} < L) \\
+    N_{DR}(L) &= f\,\sum_n \sum_{m'} I(r_{nm'} < L) \\
+    N_{RD}(L) &= f\,\sum_m \sum_{n'} I(r_{mn'} < L) \\
+    N_{RR}(L) &= f^2\,\sum_m \sum_{m'\ne m} I(r_{mm'} < L) ~,
+\end{align}
+where the sums over $n$ or $n'$ are over quasars,
+the sums over $m$ or $m'$ are over random points,
+$r_{nn'}$ is the comoving distance between quasar $n$ and quasar $n'$,
+$I(r<L)$ is an indicator function that returns 1 if $r<L$ and 0 otherwise,
+and $f$ is a dimensionless ratio of the density of the quasar sample (on the sky) to the density of the random catalog (on the sky).
+With these counts in hand, the expectation $\hat{N}_{DD}(L)$ we use for the cumulative pair counts $N_{DD}(L)$ is given by
+\begin{equation}
+    \hat{N}_{DD}(L) = N_{DR}(L) + N_{RD}(L) - N_{RR}(L) ~,
+\end{equation}
+which is inspired by the currently standard correlation-function estimator (\citealt{ls}).
+
+HOGG: \figref{fig:cumulative} strongly suggests that the fractal dimension $D$ is 3.
 Our best-fit value is ... WHAT?
 
-\section{Statistical isotropy}
+For the maximum separation $L$ and the separations $r_{nn'}$ in \eqref{eq:DD} and the subsequent equations for the pair counts, we used the comoving distance in the \textsl{Planck} 2018 cosmology (\citealt{planck}).
+This is a strong assumption, and wrong if the Universe has no mean density.
+Indeed, since (as we note in \secref{sec:intro}) there are no known solutions to the equations of general relativity in an inhomogeneous universe, there is no way to compute pair separation distances $r_{nn'}$ without making the assumption of homogeneity.
+The fact that this test passes---that the Universe appears to have a well-defined mean density and looks homogeneous on large scales---is a non-trivial test, but it does have this limitation, which cannot be addressed at present.
+
+To put error bars on things... HOGG JACKKNIFE
+
+\section{Statistical isotropy}\label{sec:stat}
 
 If the fractal dimension is 3, then the correlation function should go to zero at large scales.
 It does!
@@ -250,7 +293,7 @@ But the power asymmetry between the hemispheres challenges \emph{statistical iso
   \end{mdframed}
 \end{figure}
 
-\section{Discussion}
+\section{Discussion}\label{sec:discuss}
 
 We found what we expected to find, but at very good precision.
 
@@ -282,6 +325,7 @@ astropy (\citealt{astropy})}
 \begin{thebibliography}{dummy}
 \bibitem[Hoffleit \& Jaschek(1991)]{bsc}
 Hoffleit, D. \& Jaschek, C.\ 1991, The Bright Star Catalog. New Haven: Yale University Observatory, 5th rev. ed.
+\bibitem[Landy \& Szalay(1993)]{ls} Landy, S.~D. \& Szalay, A.~S.\ 1993, \apj, 412, 64. doi:10.1086/172900
 \bibitem[Schlegel et al.(1998)]{sfd} Schlegel, D.~J., Finkbeiner, D.~P., \& Davis, M.\ 1998, \apj, 500, 525. doi:10.1086/305772
 \end{thebibliography}
 
