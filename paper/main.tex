@@ -59,12 +59,12 @@
 \newcommand{\secref}[1]{\sectionname~\ref{#1}}
 \newcommand{\figref}[1]{\figurename~\ref{#1}}
 \newcommand{\abby}[1]{\textbf{Abby says: #1}}
+\newcommand{\hogg}[1]{\textbf{Hogg says: #1}}
 
 \begin{document}
 
-\title{%
-Testing cosmic isotropy and homogeneity
-with \textsl{Gaia} quasars}
+\title{\large%
+Testing cosmic isotropy and homogeneity \\ with the all-sky \textsl{Quaia} sample of quasars}
 \author[0000-0003-2866-9403]{David W. Hogg}
 \affil{Center for Cosmology and Particle Physics, Department of Physics, New York University}
 \affil{Max-Planck-Institut f\"ur Astronomie}
@@ -73,7 +73,7 @@ with \textsl{Gaia} quasars}
 \author[0000-0001-8764-7103]{Kate Storey-Fisher}
 \affil{Center for Cosmology and Particle Physics, Department of Physics, New York University}
 
-\date{2022 August}
+\date{2023 July}
 
 \begin{abstract}\noindent
 All cosmological models in general relativity are built on the assumption of large-scale isotropy and homogeneity.
@@ -82,11 +82,11 @@ Tests of cosmic isotropy and homogeneity are also strong tests of the quality of
 Test precision increases as observations cover more solid angle, become more sensitive to distant objects, and are made with more uniform data.
 The ESA \textsl{Gaia} Mission is primarily concerned with stars in the Milky Way, but it also observes millions of quasars, all sky (modulo Galactic extinction), to redshifts of around $4$.
 It has produced the largest-comoving-volume public quasar catalog to date.
-Here we use a carefully curated subsample of ZZZ \textsl{Gaia} quasars to show that the angular distribution, redshift distribution as a function of sky position, amplitude of clustering as a function of sky position, and counts of pairs as a function of separation (fractal dimension), are all consistent with large-scale isotropy and homogeneity at the precision possible given the size of the catalog and the amplitude of the large-scale structure.
-Roughly speaking, the results can be summarized by saying that they show the Universe to be isotropic to better than XXX percent and homogeneous to better than YYY percent.
-There is no sign of any North--South power asymmetry.
+Here we use the $755\,850$ quasars in the \textsl{Quaia} $G<20.0$ all-sky quasar sample, built from \textsl{Gaia} and \textsl{unWISE} catalogs, to show that the angular distribution, redshift distribution as a function of hemisphere, amplitude of clustering as a function of sky position, and counts of pairs as a function of separation (fractal dimension), are all consistent with large-scale isotropy and homogeneity at the precision possible given the size of the catalog and the amplitude of the large-scale structure.
+Roughly speaking, the results can be summarized by saying that they show the Universe to be isotropic at the sub-percent level and homogeneous in the sense of a fractal dimension of 3 to within YYY.
+There is no sign of any North--South density or power asymmetry.
 \abby{Is this the same hemispherical power asymmetry claimed from the CMB?}
-The isotropy results can also be interpreted as a strong test of the spectrophotometric uniformity of the \textsl{Gaia} Catalog.
+The isotropy results can also be interpreted as a strong test of the spectrophotometric uniformity of the \textsl{Quaia} Catalog.
 \end{abstract}
 
 \keywords{%
@@ -124,16 +124,17 @@ One is that the cosmic microwave background appears to show a power asymmetry, i
 If this asymmetry is real, it should show itself in the large-scale structure as well (\citealt{zhai}).
 
 Another reason to make new tests of isotropy and homogeneity is that data samples keep getting larger in volume and number, permitting more and more sensitive tests.
-Here we make use of the brand-new ESA \textsl{Gaia} DR3 data (CITE), which includes hundreds of thousands or even millions of quasars, all-sky (CITE).
+Here we make use of the brand-new \textsl{Quaia} catalog of quasars.
+This catalog is built from the ESA \textsl{Gaia} DR3 data (CITE), which includes more than a million quasars, all-sky (CITE), plus photometry from the \textsl{unWISE} catalog (CITE), which is built on the NASA \textsl{WISE} infrared imaging.
 This data set is not the largest cosmological data set in terms of number of tracers, but it is the largest-ever data set in terms of comoving volume, spanning some XXX $h^{-3}\,\Gpc^3$ (comoving), depending on how you want to define the sample volume.
 Recent tests of homogeneity include ZZZ and ZZZ; the samples used in those studies were smaller by a factor of QQQ and WWW (approximately) in comoving volume, relative to the quasar catalog we use here.
 
 A final but equally important reason to test isotropy and homogeneity is that these tests provide a very strong validation of the quality and uniformity of the data.
 Indeed, the first work on homogeneity with the Sloan Digital Sky Survey data (\citealt{hogg05}) was performed to test the calibration and stability of the data in preparation for the measurement of the baryon acoustic feature (\citealt{baf}).
-The work presented here represents a first strong test of the calibration of the \textsl{Gaia} quasar sample and associated photometry and spectroscopy; it has implications for the accuracy and uniformity of the \textsl{Gaia} data more generally.
+The work presented here represents a first strong test of the calibration of the \textsl{Quaia} quasar sample and associated photometry and spectroscopy; it has implications for the accuracy and uniformity of the \textsl{Gaia} data more generally.
 
 \section{Data}\label{sec:data}\noindent
-Hogg say: Make sure we cite the CU5 papers and XP papers here and anything that helped make the extragalactic and quasar samples.
+\hogg{Make sure we cite the CU5 papers and XP papers here and anything that helped make the extragalactic and quasar samples.}
 
 The data used in this project is the XXX quasar sample (\citealt{ksf}), derived from the ESA \textsl{Gaia} quasar candidate catalog (CITE).
 This candidate catalog was released as part of the \textsl{Gaia} Data Release 3 data (DR3; CITE).
@@ -175,7 +176,7 @@ The random-catalog footprint is modulated by stellar density and Galactic extinc
 We cut the random catalog identically to the quasar catalog.
 Both the quasar catalog and an equivalent-density sampling of the random catalog are shown on the sky in the Galactic coordinate system in \figref{fig:lb}.
 
-HOGG: DOES \cite{ksf} explain how the random catalog points get redshifts? Or are we doing that here?
+\hogg{Make sure to explain somewhere how the random catalog points get redshifts!!}
 
 \section{Isotropy}\label{sec:iso}\noindent
 A simple kind of isotropy is evident in \figref{fig:lb}:
@@ -273,6 +274,7 @@ which is inspired by the currently standard correlation-function estimator (\cit
 
 HOGG: \figref{fig:cumulative} strongly suggests that the fractal dimension $D$ is 3.
 Our best-fit value is ... WHAT?
+Get quantitative here.
 
 For the maximum separation $s$ and the separations $r_{nn'}$ in \eqref{eq:DD} and the subsequent equations for the pair counts, we used the comoving distance in the \textsl{Planck} 2018 cosmology (\citealt{planck18}).
 This is a strong assumption, and wrong if the Universe has no mean density.
@@ -320,23 +322,30 @@ This result does not confirm the hemispherical power asymmetry observed in the c
 Instead it supports the conclusion that the Universe is statistically isotropic and statistically homogeneous.
 
 \section{Discussion}\label{sec:discuss}\noindent
-HOGG: We found what we expected to find, but at very good precision.
+\hogg{We found what we expected to find, but at very good precision.}
 
-HOGG: How to summarize these results?
+\hogg{How to summarize these results?}
 
-HOGG: ESA \textsl{Gaia} rocks!
+\hogg{Comment on the dipole and surrounding controversy.}
+
+\hogg{What would have been different if we had gone to the $G<20.4$ sample?}
+
+\hogg{Note that the selection function was built by assuming isotropy. In detail, that must bias our results.}
+
+\hogg{What to say about uniformity and calibration of Quaia?}
 
 \begin{acknowledgements}
 It is a pleasure to thank
   Anna-Christina Eilers (MIT),
   Hans-Walter Rix (MPIA), and
-  Abby Williams (NYU, Caltech) for valuable discussions. KSF: OTHERS?
+  Abby Williams (NYU, Caltech)
+for valuable discussions.
 This project was developed in part at the 2022 Gaia F\^ete, hosted by the Center for Computational Astrophysics at the Flatiron Institute.
 This project was also developed in part at the Gaia Hike, a workshop hosted by the University of British Columbia and the Canadian Institute for Theoretical Astrophysics in 2022 June.
 
-HOGG: Be sure to put in the full Gaia acknowlegement.
+\hogg{Be sure to put in the full Gaia acknowlegement.}
 
-HOGG: Did we use 2MASS? If so, fix the text to capture it above and below.
+\hogg{Is there a WISE or unWISE acknowlegement?}
 \end{acknowledgements}
 
 \facilities{%
