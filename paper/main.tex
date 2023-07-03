@@ -8,10 +8,8 @@
 % ## to-do items
 % --------------
 % - test the cmb dipole; cite Secrest et al. NO -- ABBY's PAPER -- BUT DISCUSS THIS POINT.
-% - color choices?
 % - explain, justify, or change how DD, DR, RD, and RR are counted -- the asymmetry between the tree and the sample compared to the tree.
 % - discuss more philosophically why alms are sensitive tests of anisotropy
-% - actually measure the fractal dimension
 % - make some figure that quantitatively checks Gaia calibration
 % - put the expectation hatN_DD onto the non-divided cumulative number plot
 % - put in all missing references
@@ -64,7 +62,7 @@
 \begin{document}
 
 \title{\large%
-Testing cosmic isotropy and homogeneity \\ with the all-sky \textsl{Quaia} sample of quasars}
+Testing cosmic isotropy and homogeneity \\ with the \textsl{Quaia} all-sky spectroscopic sample of quasars}
 \author[0000-0003-2866-9403]{David W. Hogg}
 \affil{Center for Cosmology and Particle Physics, Department of Physics, New York University}
 \affil{Max-Planck-Institut f\"ur Astronomie}
@@ -83,9 +81,10 @@ Test precision increases as observations cover more solid angle, become more sen
 The ESA \textsl{Gaia} Mission is primarily concerned with stars in the Milky Way, but it also observes millions of quasars, all sky (modulo Galactic extinction), to redshifts of around $4$.
 It has produced the largest-comoving-volume public quasar catalog to date.
 Here we use the $755\,850$ quasars in the \textsl{Quaia} $G<20.0$ all-sky quasar sample, built from \textsl{Gaia} and \textsl{unWISE} catalogs, to show that the angular distribution, redshift distribution as a function of hemisphere, amplitude of clustering as a function of sky position, and counts of pairs as a function of separation (fractal dimension), are all consistent with large-scale isotropy and homogeneity at the precision possible given the size of the catalog and the amplitude of the large-scale structure.
-Roughly speaking, the results can be summarized by saying that they show the Universe to be isotropic at the sub-percent level and homogeneous in the sense of a fractal dimension of 3 to within YYY.
+Roughly speaking, the results can be summarized by saying that they show the Universe to be isotropic at the sub-percent level and homogeneous in the sense of having a fractal dimension of $3.002\pm 0.002$.
 There is no sign of any North--South density or power asymmetry.
 \abby{Is this the same hemispherical power asymmetry claimed from the CMB?}
+\hogg{No, unfortunately; I will do that split too.}
 The isotropy results can also be interpreted as a strong test of the spectrophotometric uniformity of the \textsl{Quaia} Catalog.
 \end{abstract}
 
@@ -107,10 +106,10 @@ quasars
 \section*{}
 \clearpage
 \section{Introduction}\label{sec:intro}\noindent
-One of the fundamental assumptions of the physical cosmological model is that the Universe is isotropic and homogeneous on large scales (CITE).
+One of the fundamental assumptions of the physical cosmological model is that the Universe is isotropic and homogeneous on large scales (for example, \citealt{peebles, ryden}).
 This assumption is testable.
-It is worthy of test, both because it is always worth testing fundamental assumptions, and because the large-scale structure has self-similar or fractal characteristics (CITE), which are characteristic of inhomogeneous distributions.
-And, even in the ascendent physical model of cosmology, there is expected to be at least some power in the initial conditions on all length scale (CITE).
+It is worthy of test, both because it is always worth testing fundamental assumptions, and because the large-scale structure has self-similar or fractal characteristics, which are characteristic of inhomogeneous distributions.
+And, even in the ascendent physical model of cosmology, there is expected to be at least some power in the initial conditions on all length scale.
 
 If the Universe failed tests of homogeneity on large scales, and in particular if the Universe turned out to be a fractal with a fractal dimension significantly less than 3, we would be in big trouble theoretically.
 Why?
@@ -120,7 +119,7 @@ Indeed, there are not even any known solutions of the equations of general relat
 
 All that said, we know now that the Universe is not a fractal on large scales (\citealt{hogg05}; CITE OTHERS).
 There are other reasons to continue to test isotropy and homogeneity however.
-One is that the cosmic microwave background appears to show a power asymmetry, in which there appears to be a larger amplitude of fluctuations in the North/South Ecliptic (HOGG CHECK) Cap than there is in the South/North (\citealt{wmapanisotropy}; \citealt{planckanisotropy}).
+One is that the cosmic microwave background appears to show a power asymmetry, in which there appears to be a larger amplitude of fluctuations in the North/South Ecliptic (\hogg{this is not quite right, or is it?}) Cap than there is in the South/North (\citealt{wmapanisotropy}; \citealt{planckanisotropy}).
 If this asymmetry is real, it should show itself in the large-scale structure as well (\citealt{zhai}).
 
 Another reason to make new tests of isotropy and homogeneity is that data samples keep getting larger in volume and number, permitting more and more sensitive tests.
@@ -247,7 +246,8 @@ If $N_{DD}$ is proportional to $s^d$ then the fractal dimension is $d$; if $d=3$
   \end{center}
     \caption{\textsl{Top:} The cumulative total number $N_{DD}$ \eqref{eq:DD} of quasar--quasar pairs as a function of comoving separation $s$ for the NGC and SGC subsamples. Jackknife uncertainty estimates are shown but are smaller than the points for all points.
     \textsl{Bottom:} The same, but divided by the expectation $\hat{N}_{DD}$ \eqref{eq:DDhat} in a homogeneous universe.
-    This figure demonstrates that the fractal dimension is extremely close to $3$.\label{fig:cumulative}}
+    This figure demonstrates that the fractal dimension is extremely close to $3$.
+    \hogg{Explain the fractal-dimension label.}\label{fig:cumulative}}
   \end{mdframed}
 \end{figure}
 The cumulative number $N_{DD}$ of pairs up to separation $s$ is shown as a function of $s$ in the top panel of \figref{fig:cumulative}.
@@ -272,9 +272,9 @@ With these counts in hand, the expectation $\hat{N}_{DD}(s)$ we use for the cumu
 \end{equation}
 which is inspired by the currently standard correlation-function estimator (\citealt{ls}).
 
-HOGG: \figref{fig:cumulative} strongly suggests that the fractal dimension $D$ is 3.
+\hogg{\figref{fig:cumulative} strongly suggests that the fractal dimension $D$ is 3.
 Our best-fit value is ... WHAT?
-Get quantitative here.
+Get quantitative here and explain how we computed the fractal dimension.}
 
 For the maximum separation $s$ and the separations $r_{nn'}$ in \eqref{eq:DD} and the subsequent equations for the pair counts, we used the comoving distance in the \textsl{Planck} 2018 cosmology (\citealt{planck18}).
 This is a strong assumption, and wrong if the Universe has no mean density.
@@ -360,16 +360,21 @@ matplotlib (\citealt{matplotlib}),
 astropy (\citealt{astropy})}
 
 \begin{thebibliography}{dummy}
+\bibitem[Astropy Collaboration et al.(2022)]{astropy} Astropy Collaboration, Price-Whelan, A.~M., Lim, P.~L., et al.\ 2022, \apj, 935, 167. doi:10.3847/1538-4357/ac7c74
 \bibitem[Eisenstein et al.(2005)]{baf} Eisenstein, D.~J., Zehavi, I., Hogg, D.~W., et al.\ 2005, \apj, 633, 560. doi:10.1086/466512
 \bibitem[Eriksen et al.(2004)]{wmapanisotropy} Eriksen, H.~K., Hansen, F.~K., Banday, A.~J., et al.\ 2004, \apj, 605, 14. doi:10.1086/382267
+\bibitem[Harris et al.(2020)]{numpy} Harris,~C.~R., Millman,~K.~J., van~der~Walt,~S.~J., et al.\ 2020, \nat, 585, 357. doi:10.1038/s41586-020-2649-2
 \bibitem[Hoffleit \& Jaschek(1991)]{bsc}
 Hoffleit, D. \& Jaschek, C.\ 1991, The Bright Star Catalog. New Haven: Yale University Observatory, 5th rev. ed.
 \bibitem[Hogg et al.(2005)]{hogg05} Hogg, D.~W., Eisenstein, D.~J., Blanton, M.~R., et al.\ 2005, \apj, 624, 54. doi:10.1086/429084
 \bibitem[Landy \& Szalay(1993)]{ls} Landy, S.~D. \& Szalay, A.~S.\ 1993, \apj, 412, 64. doi:10.1086/172900
+\bibitem[Peebles(1993)]{peebles} Peebles, P.~J.~E. 1993, Principles of physical cosmology, Princeton University Press.
 \bibitem[Planck Collaboration(2014)]{planckanisotropy} Planck Collaboration, Ade, P.~A.~R., Aghanim, N., et al.\ 2014, \aap, 571, A23. doi:10.1051/0004-6361/201321534
 \bibitem[Planck Collaboration(2020)]{planck18} Planck Collaboration, Aghanim, N., Akrami, Y., et al.\ 2020, \aap, 641, A6. doi:10.1051/0004-6361/201833910
+\bibitem[Ryden(2017)]{ryden} Ryden, B. 2017, \textit{Introduction to cosmology}, Cambridge University Press.
 \bibitem[Schlegel et al.(1998)]{sfd} Schlegel, D.~J., Finkbeiner, D.~P., \& Davis, M.\ 1998, \apj, 500, 525. doi:10.1086/305772
-\bibitem[Storey-Fisher et al.(2022)]{ksf} Storey-Fisher, K, Hogg, D.~W., Eilers, A.-C., et al.\ 2022, in preparation
+\bibitem[Storey-Fisher et al.(2023)]{ksf} Storey-Fisher, K, Hogg, D.~W., Eilers, A.-C., et al.\ 2023, arXiv:2306.17749.
+\bibitem[Virtanen et al.(2020)]{scipy} Virtanen,~P., Gommers,~R., Oliphant,~T.~E., et al.\ 2020, Nature Methods, 17, 261. doi:10.1038/s41592-019-0686-2
 \bibitem[Zhai \& Blanton(2017)]{zhai} Zhai, Z. \& Blanton, M.~R.\ 2017, \apj, 850, 41. doi:10.3847/1538-4357/aa93e1
 \end{thebibliography}
 
