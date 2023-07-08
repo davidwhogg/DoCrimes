@@ -7,7 +7,6 @@
 
 % ## to-do items
 % --------------
-% - test the cmb dipole; cite Secrest et al. NO -- ABBY's PAPER -- BUT DISCUSS THIS POINT.
 % - explain, justify, or change how DD, DR, RD, and RR are counted -- the asymmetry between the tree and the sample compared to the tree.
 % - discuss more philosophically why alms are sensitive tests of anisotropy
 % - make some figure that quantitatively checks Gaia calibration
@@ -15,6 +14,7 @@
 % - put in all missing references
 % - address all CITE, XXX, YYY, ZZZ, HOGG, KSF in the text
 % - make sure the figure axis labels and figure captions use precisely the math symbols used in the text; maybe also turn on TeX in matplotlib?
+% - add discussion of the fractal dimension measurement, and also note that if you do it the traditional way (counting in cells, no accounting for selection) you get a fractal dimension more like 2.85 on largest scales.
 
 \documentclass[modern]{aastex631}
 \usepackage[utf8]{inputenc}
@@ -117,28 +117,33 @@ Because a fractal universe has no well-defined mean density.
 There are no working physical models for such an inhomogeneous universe.
 Indeed, there are not even any known solutions of the equations of general relativity without a well-defined mean density.
 
-All that said, we know now that the Universe is not a fractal on large scales (\citealt{hogg05}; CITE OTHERS).
+All that said, we know now that the Universe is not a fractal on large scales (for example, \citealt{hogg05, gonc1, gonc2, pandey}).
 There are other reasons to continue to test isotropy and homogeneity however.
 One is that the cosmic microwave background appears to show a power asymmetry, in which there appears to be a larger amplitude of fluctuations in the North/South Ecliptic (\hogg{this is not quite right, or is it?}) Cap than there is in the South/North (\citealt{wmapanisotropy}; \citealt{planckanisotropy}).
 If this asymmetry is real, it should show itself in the large-scale structure as well (\citealt{zhai}).
 
 Another reason to make new tests of isotropy and homogeneity is that data samples keep getting larger in volume and number, permitting more and more sensitive tests.
-Here we make use of the brand-new \textsl{Quaia} catalog of quasars.
-This catalog is built from the ESA \textsl{Gaia} DR3 data (CITE), which includes more than a million quasars, all-sky (CITE), plus photometry from the \textsl{unWISE} catalog (CITE), which is built on the NASA \textsl{WISE} infrared imaging.
-This data set is not the largest cosmological data set in terms of number of tracers, but it is the largest-ever data set in terms of comoving volume, spanning some XXX $h^{-3}\,\Gpc^3$ (comoving), depending on how you want to define the sample volume.
-Recent tests of homogeneity include ZZZ and ZZZ; the samples used in those studies were smaller by a factor of QQQ and WWW (approximately) in comoving volume, relative to the quasar catalog we use here.
+Here we make use of the brand-new \textsl{Quaia} catalog of quasars (\citealt{quaia}).
+This catalog is built from the ESA \textsl{Gaia} DR3 data (\citealt{gaiadr3}), which includes more than a million spectroscopic quasars, all-sky (\citealt{gaiaquasar}), plus photometry from the \textsl{unWISE} catalog (\citealt{lang, unwise}), which is built on the NASA \textsl{WISE} infrared imaging (\citealt{wise}).
+This data set is not the largest cosmological data set in terms of number of tracers, but it is the largest-ever data set in terms of comoving volume, spanning some \hogg{XXX} $h^{-3}\,\Gpc^3$ (comoving), depending on how you want to define the sample volume.
+The much larger comoving volume is a result of both \textsl{Gaia}'s all-sky footprint, and the broad redshift distribution of the quasars.
 
-A final but equally important reason to test isotropy and homogeneity is that these tests provide a very strong validation of the quality and uniformity of the data.
+One interesting recent result is that the dipole measured in a photometric sample of quasars looks like it is too large in amplitude to be explained by the motion of the Solar System relative to the cosmic microwave background rest frame (\citealt{secrest, dam}, but see also \citealt{guandalin}).
+This is worth checking.
+We will not address this point directly in this work, because the dipole measurement in a quasar sample is covariant with assumptions about the selection function; this subtlety is such that it ought to be measured in a separate investigation.
+We recognize that the quantitative value of the dipole is relevant to questions of isotropy and homogeneity.
+
+A final reason to test isotropy and homogeneity is that these tests provide a very strong validation of the quality and uniformity of the data, and the veracity of the selection function.
 Indeed, the first work on homogeneity with the Sloan Digital Sky Survey data (\citealt{hogg05}) was performed to test the calibration and stability of the data in preparation for the measurement of the baryon acoustic feature (\citealt{baf}).
 The work presented here represents a first strong test of the calibration of the \textsl{Quaia} quasar sample and associated photometry and spectroscopy; it has implications for the accuracy and uniformity of the \textsl{Gaia} data more generally.
 
 \section{Data}\label{sec:data}\noindent
 \hogg{Make sure we cite the CU5 papers and XP papers here and anything that helped make the extragalactic and quasar samples.}
 
-The data used in this project is the XXX quasar sample (\citealt{ksf}), derived from the ESA \textsl{Gaia} quasar candidate catalog (CITE).
+The data used in this project is the \textsl{Quaia} quasar sample (\citealt{quaia}), derived from the ESA \textsl{Gaia} quasar candidate catalog (CITE).
 This candidate catalog was released as part of the \textsl{Gaia} Data Release 3 data (DR3; CITE).
 The catalog was constructed using the overlap of the \textsl{Gaia} DR3 data with photometry from the NASA \textsl{WISE} Mission (CITE), and spectro-photometric redshifts were estimated using a combination of XXX photometry, \textsl{Gaia} DR3 \texttt{qsoc} (maybe?) redshift estimates, and a training set from \textsl{SDSS-IV} Data Release 17 data (CITE).
-For more information see the XXX quasar catalog paper (\citealt{ksf}).
+For more information see the XXX quasar catalog paper (\citealt{quaia}).
 
 \begin{figure}[t!]
   \begin{mdframed}
@@ -170,7 +175,7 @@ The sample is shown on the sky in the equatorial coordinate system in \figref{fi
     Stars from the Bright Star Catalog (\citealt{bsc}) with $V<4\,\mg$ are shown as grey disks for angular reference.\label{fig:lb}}
   \end{mdframed}
 \end{figure}
-The XXX quasar catalog comes with an associated random catalog with a near-identical sky footprint but YYYY times the density (\citealt{ksf}).
+The XXX quasar catalog comes with an associated random catalog with a near-identical sky footprint but YYYY times the density (\citealt{quaia}).
 The random-catalog footprint is modulated by stellar density and Galactic extinction, with these modulations fit to match the observed data.
 We cut the random catalog identically to the quasar catalog.
 Both the quasar catalog and an equivalent-density sampling of the random catalog are shown on the sky in the Galactic coordinate system in \figref{fig:lb}.
@@ -210,7 +215,7 @@ The bottom panel of \figref{fig:alms} shows the amplitudes again, but after the 
 Their expectations are computed by performing the same sums as in \eqref{eq:alms}, but with the random catalog instead of the quasar catalog.
 These represent the expectations under isotropy because the random catalog is made with a perfectly isotropic distribution cut by an estimate of the selection function.
 
-In detail, the selection function was inferred (and the random catalog was made) using an empirical procedure that essentially assumes that the quasar sample is isotropic (see \citealt{ksf} for details).
+In detail, the selection function was inferred (and the random catalog was made) using an empirical procedure that essentially assumes that the quasar sample is isotropic (see \citealt{quaia} for details).
 Does this make the test shown in \figref{fig:alms} circular or true by assumption?
 It does not, because the only freedoms permitted in constructing the random catalog were dependences on observed extinction (according to the infrared-emission map of \citealt{sfd}) and the stellar density (according to a count of stars in the \textsl{Gaia} catalog).
 And, indeed, the biggest anisotropic amplitudes are at $(\ell,m)=(1,0)$, $(2,0)$, and $(4,0)$, which are exactly what are expected if this completeness map is not perfect:
@@ -361,20 +366,32 @@ astropy (\citealt{astropy})}
 
 \begin{thebibliography}{dummy}
 \bibitem[Astropy Collaboration et al.(2022)]{astropy} Astropy Collaboration, Price-Whelan, A.~M., Lim, P.~L., et al.\ 2022, \apj, 935, 167. doi:10.3847/1538-4357/ac7c74
+\bibitem[Dam et al.(2022)]{dam} Dam, L., Lewis, G.~F., \& Brewer, B.~J.\ 2022, arXiv:2212.07733. doi:10.48550/arXiv.2212.07733
 \bibitem[Eisenstein et al.(2005)]{baf} Eisenstein, D.~J., Zehavi, I., Hogg, D.~W., et al.\ 2005, \apj, 633, 560. doi:10.1086/466512
 \bibitem[Eriksen et al.(2004)]{wmapanisotropy} Eriksen, H.~K., Hansen, F.~K., Banday, A.~J., et al.\ 2004, \apj, 605, 14. doi:10.1086/382267
+\bibitem[Gaia Collaboration et al.(2023)]{gaiadr3} Gaia Collaboration, Vallenari, A., Brown, A.~G.~A., et al.\ 2023, \aap, 674, A1. doi:10.1051/0004-6361/202243940
+\bibitem[Gaia Collaboration et al.(2023)]{gaiaquasar} Gaia Collaboration, Bailer-Jones, C.~A.~L., Teyssier, D., et al.\ 2023, \aap, 674, A41. doi:10.1051/0004-6361/202243232
+\bibitem[Gon{\c{c}}alves et al.(2018)]{gonc1} Gon{\c{c}}alves, R.~S., Carvalho, G.~C., Bengaly, C.~A.~P., et al.\ 2018, \mnras, 475, L20. doi:10.1093/mnrasl/slx202
+\bibitem[Gon{\c{c}}alves et al.(2021)]{gonc2} Gon{\c{c}}alves, R.~S., Carvalho, G.~C., Andrade, U., et al.\ 2021, \jcap, 2021, 029. doi:10.1088/1475-7516/2021/03/029
+\bibitem[Guandalin et al.(2022)]{guandalin} Guandalin, C., Piat, J., Clarkson, C., et al.\ 2022, arXiv:2212.04925. doi:10.48550/arXiv.2212.04925
 \bibitem[Harris et al.(2020)]{numpy} Harris,~C.~R., Millman,~K.~J., van~der~Walt,~S.~J., et al.\ 2020, \nat, 585, 357. doi:10.1038/s41586-020-2649-2
 \bibitem[Hoffleit \& Jaschek(1991)]{bsc}
 Hoffleit, D. \& Jaschek, C.\ 1991, The Bright Star Catalog. New Haven: Yale University Observatory, 5th rev. ed.
 \bibitem[Hogg et al.(2005)]{hogg05} Hogg, D.~W., Eisenstein, D.~J., Blanton, M.~R., et al.\ 2005, \apj, 624, 54. doi:10.1086/429084
+\bibitem[Hunter(2007)]{matplotlib} Hunter,~J.~D., 2007, Computing in Science \& Engineering, 9, 90. doi:10.1109/MCSE.2007.55
 \bibitem[Landy \& Szalay(1993)]{ls} Landy, S.~D. \& Szalay, A.~S.\ 1993, \apj, 412, 64. doi:10.1086/172900
+\bibitem[Lang(2014)]{lang} Lang, D.\ 2014, \aj, 147, 108. doi:10.1088/0004-6256/147/5/108
+\bibitem[Pandey \& Sarkar(2021)]{pandey} Pandey, B. \& Sarkar, S.\ 2021, \jcap, 2021, 019. doi:10.1088/1475-7516/2021/07/019
 \bibitem[Peebles(1993)]{peebles} Peebles, P.~J.~E. 1993, Principles of physical cosmology, Princeton University Press.
 \bibitem[Planck Collaboration(2014)]{planckanisotropy} Planck Collaboration, Ade, P.~A.~R., Aghanim, N., et al.\ 2014, \aap, 571, A23. doi:10.1051/0004-6361/201321534
 \bibitem[Planck Collaboration(2020)]{planck18} Planck Collaboration, Aghanim, N., Akrami, Y., et al.\ 2020, \aap, 641, A6. doi:10.1051/0004-6361/201833910
 \bibitem[Ryden(2017)]{ryden} Ryden, B. 2017, \textit{Introduction to cosmology}, Cambridge University Press.
+\bibitem[Schlafly et al.(2019)]{unwise} Schlafly, E.~F., Meisner, A.~M., \& Green, G.~M.\ 2019, \apjs, 240, 30. doi:10.3847/1538-4365/aafbea
 \bibitem[Schlegel et al.(1998)]{sfd} Schlegel, D.~J., Finkbeiner, D.~P., \& Davis, M.\ 1998, \apj, 500, 525. doi:10.1086/305772
-\bibitem[Storey-Fisher et al.(2023)]{ksf} Storey-Fisher, K, Hogg, D.~W., Eilers, A.-C., et al.\ 2023, arXiv:2306.17749.
+\bibitem[Secrest et al.(2021)]{secrest} Secrest, N.~J., von Hausegger, S., Rameez, M., et al.\ 2021, \apjl, 908, L51. doi:10.3847/2041-8213/abdd40
+\bibitem[Storey-Fisher et al.(2023)]{quaia} Storey-Fisher, K, Hogg, D.~W., Eilers, A.-C., et al.\ 2023, arXiv:2306.17749.
 \bibitem[Virtanen et al.(2020)]{scipy} Virtanen,~P., Gommers,~R., Oliphant,~T.~E., et al.\ 2020, Nature Methods, 17, 261. doi:10.1038/s41592-019-0686-2
+\bibitem[Wright et al.(2010)]{wise} Wright, E.~L., Eisenhardt, P.~R.~M., Mainzer, A.~K., et al.\ 2010, \aj, 140, 1868. doi:10.1088/0004-6256/140/6/1868
 \bibitem[Zhai \& Blanton(2017)]{zhai} Zhai, Z. \& Blanton, M.~R.\ 2017, \apj, 850, 41. doi:10.3847/1538-4357/aa93e1
 \end{thebibliography}
 
